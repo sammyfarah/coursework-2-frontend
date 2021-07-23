@@ -1,1 +1,60 @@
 <!Doctype >
+<html lang="en">
+
+<head>
+<title> Fetch </title>
+</head>
+
+<body>
+<p> Add a new lesson  <code>products</code>  collection </p>
+<code>{title:'new product', price:49}</code>
+<p>The response <span id = 'response'></span></p>
+<p>Error:<span id ='Error'></span></p>
+</body>
+
+const newProduct = {title: 'new product'
+, price: 49};
+// The herokuapp url is stated
+fetch('https://cst3145.herokuapp.com/collection/products'
+, {
+method: 'POST'
+, // The HTTP method as is made via 'POST'
+headers: {
+'Content-Type': 'application/json'
+, // set the data type as JSON
+},
+body: JSON.stringify(newProduct), // need to stringify the JSON object
+})
+.then(response => response.json())
+.then(responseJSON => {
+console.log('Success:'
+, responseJSON);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
