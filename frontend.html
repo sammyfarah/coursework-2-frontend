@@ -23,13 +23,26 @@ headers: {
 'Content-Type': 'application/json'
 , // set the data type as JSON
 },
-body: JSON.stringify(newProduct), // need to stringify the JSON object
+body: JSON.stringify(newProduct), // stringify the JSON object
 })
 .then(response => response.json())
 .then(responseJSON => {
 console.log('Success:'
 , responseJSON);
 });
+
+app.use(function(req, res, next) {
+    // allow the IP address
+    res.header("Access-Control-Allow-Origin"
+    ,
+    "*");
+    // allow acess to header fields
+    res.header("Access-Control-Allow-Headers"
+    ,
+    "*");
+    next();
+    });
+    
 
 
 
